@@ -16,11 +16,12 @@ ____
 
 ## 2. Installing Packages
 Tip: If you are using a virtual environment (venv), make sure to activate it before installing packages
-`pip install -r requirements.txt
+```
+pip install -r requirements.txt
 ____
 
 ## 3. Start the Server 
-`uvicorn app.main:app --reloaad
+`uvicorn app.main:app --reloaad`
 ____
 
 ## 4. Interacting with the Cooking Assistant
@@ -53,7 +54,7 @@ You can also test via command line using curl:
 curl -X POST http://127.0.0.1:8000/process \
 -H "Content-Type: application/json" \
 -d "{\"query\": \"Your recipe query here\"}"
-
+```
 ____
 
 ## 5. How it Works 
