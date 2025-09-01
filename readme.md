@@ -10,17 +10,21 @@ _____
 1. Create a `.env` file in the root of your project.
 2. Add your API keys for Google Gemini and Tavily Search:
 
--GEMINI_API_KEY=Your_API_Key_Here
--TAVILY_API_KEY=Your_API_Key_Here
+GEMINI_API_KEY=Your_API_Key_Here   
+TAVILY_API_KEY=Your_API_Key_Here
 ____
 
 ## 2. Installing Packages
 Tip: If you are using a virtual environment (venv), make sure to activate it before installing packages
-```pip install -r requirements.txt```
+```
+pip install -r requirements.txt
+```
 ____
 
 ## 3. Start the Server 
-```uvicorn app.main:app --reloaad```
+```
+uvicorn app.main:app --reloaad
+```
 ____
 
 ## 4. Interacting with the Cooking Assistant
