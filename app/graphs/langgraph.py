@@ -87,4 +87,16 @@ graph.add_edge("cookware_agent", END)
 # dot.render('langgraph_graph', view=True)
 
 app_graph = graph.compile()
+try:
+    png_image_bytes = app_graph.get_graph().draw_mermaid_png()
+
+    # Save the bytes to a file
+    with open("app/graphs/graph-flow.png", "wb") as f:
+        f.write(png_image_bytes)
+    
+    print("Graph visualization saved successfully to app/graphs/graph-flow.png")
+
+except Exception as e:
+    print(f"Error generating graph: {e}")
+    print("Please ensure you have run 'pip install pyppeteer' and 'python -m pyppeteer.install'")
 
