@@ -7,6 +7,7 @@ load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
 
 def research_agent(state: MyState):
+    print("Invoking LLM response agent")
     query = state["query"] 
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=API_KEY)
 
