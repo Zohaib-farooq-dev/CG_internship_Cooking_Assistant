@@ -53,39 +53,6 @@ graph.add_conditional_edges(
 )
 graph.add_edge("cookware_agent", END)
 
-
-# dot = Digraph(format='png')
-# for state in graph.nodes:
-#     dot.node(state)
-
-# # LangGraph me edges ka real structure: graph.edges -> dict {source: [targets]}
-# for edge in graph.edges:
-#     if len(edge) == 3:
-#         src, tgt, condition = edge
-#         if condition:  # agar condition hai
-#             dot.edge(src, tgt, label=str(condition))
-#         else:         # condition None ya empty ho
-#             dot.edge(src, tgt)
-#     else:
-#         # fallback in case edge is just a 2-tuple
-#         src, tgt = edge
-#         dot.edge(src, tgt)
-# # for edge in graph.edges:
-# #     if len(edge) == 3:
-# #         src, tgt, condition = edge
-# #         if condition:
-# #             dot.edge(src, tgt, label=str(condition))
-# #         else:
-# #             dot.edge(src, tgt)
-# #     else:  # fallback for normal 2-tuple edges
-# #         src, tgt = edge
-# #         dot.edge(src, tgt)
-# # for src, tgt in graph.edges:
-# #     dot.edge(src, tgt)
-
-# # --- Visualize ---
-# dot.render('langgraph_graph', view=True)
-
 app_graph = graph.compile()
 try:
     png_image_bytes = app_graph.get_graph().draw_mermaid_png()
