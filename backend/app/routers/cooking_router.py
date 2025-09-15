@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from app.models.query import QueryRequest
-from app.services import query_services
+from backend.app.models.query import QueryRequest
+from backend.app.services import query_services
 
 router = APIRouter()
 

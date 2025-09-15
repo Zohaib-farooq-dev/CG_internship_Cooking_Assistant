@@ -1,8 +1,8 @@
 import os, json, re
 from dotenv import load_dotenv
 from langchain_google_genai import ChatGoogleGenerativeAI
-from app.graphs.state import MyState
-from app.cookwares import cookwares
+from backend.app.graphs.state import MyState
+from backend.app.graphs.cookwares import cookwares
 
 load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")

@@ -1,13 +1,13 @@
 import os,re,json
-from app.graphs.state import MyState
+from backend.app.graphs.state import MyState
 from langchain_google_genai import ChatGoogleGenerativeAI
-from app.cookwares import cookwares
+from backend.app.graphs.cookwares import cookwares
 from dotenv import load_dotenv
 
 load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
 
-def cookware_agent(state: MyState):
+def alternative_recipe_agent(state: MyState):
     print("Invoking Cookware response modifier agent")
     content= state["content"]["content"]
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=API_KEY)
@@ -26,6 +26,8 @@ def cookware_agent(state: MyState):
              Generate the alternatice recipe which should be cookable by above cookwares
              Suggest an **alternative version** of the recipe that can be cooked realistically using only the given cookwares.
              Mention what **extra cookware** would be required for the original recipe or original taste.
+             **If even after using cookware tools creatively, the recipe is not cookable with these cookwares then respond. 
+             Sorry This recipe is not cookable with these cookwares and also emntion what specific tools are needed for this recipe.**
 
              ***Example:
              Content:" basic cake recipe involves creaming together butter and sugar, adding eggs one at a time, 
@@ -42,6 +44,12 @@ def cookware_agent(state: MyState):
              Response:"Marinate chicken cubes and shallow-fry them in a Frying Pan with a little butter or oil until cooked and golden. 
              For a smoky touch, heat a piece of charcoal on the Stovetop, place it in a small steel spoon inside the Little Pot with the cooked chicken, and cover to trap the smoke. 
              Use the Spatula, Whisk, and Spoon to mix, garnish, and serve a creamy, restaurant-style Malai Boti."
+
+
+             Content:"To grill fish, lightly brush the fish with oil and season with salt, pepper, and your favorite spices. Preheat your grill to a medium-high heat. 
+             Place the fish directly on the grill grates and cook for 3-5 minutes per side, depending on thickness, until it's flaky and has visible grill marks."
+             
+             Response:"Sorry, this particular recipe is not cookable with these available cookwares. You need a BBQ grill or a grill pan for this recipe."
 
              """
     ).content

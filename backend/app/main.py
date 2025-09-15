@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from app.routers import cooking_router
+from backend.app.routers import cooking_router
 
 app = FastAPI(title="LangGraph API")
 

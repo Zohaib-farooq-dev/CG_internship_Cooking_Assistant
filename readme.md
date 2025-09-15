@@ -22,6 +22,21 @@ pip install -r requirements.txt
 ____
 
 ## 3. Start the Server 
+### 3.1. Run docker image 
+If you have Docker installed, you can run the application within a container.
+
+1.  **Build the Docker image:**
+    ```
+    docker build -t zubo595/cooking_agent .
+    ```
+
+2.  **Run the container:**
+    ```
+    docker run -p 8000:8000 zubo595/cooking_agent
+    ```
+    Your application will now be running on http://127.0.0.1:8000.
+
+### 3.2. Start with Python
 ```
 uvicorn app.main:app --reloaad
 ```
@@ -63,7 +78,7 @@ ____
 
 ## 5. How it Works 
 
-1. Classifier Agent: Determines if a query is relevant and classifies it (research_general, research_updated, irrelevant).
+1. Classifier Agent: Determines if a query is relevant and classifies it (relevant, irrelevant).
 
 2. Research Agents: Generate content or find relevant answers based on classification.
 
