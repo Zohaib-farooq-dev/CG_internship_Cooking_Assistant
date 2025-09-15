@@ -38,7 +38,7 @@ If you have Docker installed, you can run the application within a container.
 
 ### 3.2. Start with Python
 ```
-uvicorn app.main:app --reloaad
+uvicorn backend.app.main:app --reloaad
 ```
 ____
 
