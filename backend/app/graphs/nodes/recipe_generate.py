@@ -73,9 +73,6 @@ def cooking_research_agent(state: MyState) -> MyState:
         cleaned = raw_text.strip()
 
     try:
-        # fixed_json_string = re.sub(r'\\(?!["\\/bfnrtu])', r'\\\\', cleaned)  # Escape any backslashes first
-        # fixed_json_string = re.sub(r'(?<!\\)"', r'\"', fixed_json_string.replace('\\"', '"').replace('"', '\\"'))
-
         result_dict = json.loads(cleaned)
     except json.JSONDecodeError:
         print(f"JSON DECODE ERROR: Could not parse JSON from: {cleaned}")

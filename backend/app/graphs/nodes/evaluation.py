@@ -13,7 +13,7 @@ def evaluation_agent(state: MyState):
     llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", google_api_key=API_KEY)
 
     result = llm.invoke(
-        f""" You are an expert cooking evaluator. 
+        f""" You are an expert cooking evaluator. docke
              A cooking assistant generated this content:
 
              Content:
