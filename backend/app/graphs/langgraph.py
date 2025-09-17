@@ -4,7 +4,8 @@ from backend.app.graphs.nodes.recipe_generate import cooking_research_agent
 from backend.app.graphs.nodes.evaluation import evaluation_agent
 from backend.app.graphs.nodes.alternative_recipe import alternative_recipe_agent
 from backend.app.graphs.nodes.response_generate import generate_response
-from backend.app.graphs.state import MyState
+from backend.app.graphs.utils.state import MyState
+from backend.app.graphs.utils.constants import image_path
 
 graph = StateGraph(MyState)
 
@@ -13,7 +14,6 @@ graph.add_node("cooking_recipe", cooking_research_agent)
 graph.add_node("evaluation", evaluation_agent)
 graph.add_node("alternative_agent", alternative_recipe_agent)
 graph.add_node("response", generate_response)
-
 
 graph.add_edge(START, "classifier")
 
@@ -27,10 +27,6 @@ graph.add_conditional_edges(
 )
 
 graph.add_edge("cooking_recipe", "evaluation")
-# graph.add_edge("research_updated", "evaluation")
-
-# graph.add_edge("irrelevant", END)
-
 
 graph.add_conditional_edges(
     "evaluation",
@@ -58,11 +54,8 @@ try:
     png_image_bytes = app_graph.get_graph().draw_mermaid_png()
 
     # Save the bytes to a file
-    with open("backend/app/graphs/graph_visualization/graph-flow.png", "wb") as f:
+    with open(image_path, "wb") as f:
         f.write(png_image_bytes)
-    
-    print("Graph visualization saved successfully to app/graphs/graph-flow.png")
-
 except Exception as e:
     print(f"Error generating graph: {e}")
     print("Please ensure you have run 'pip install pyppeteer' and 'python -m pyppeteer.install'")

@@ -1,5 +1,5 @@
 # backend/app/graphs/response_generate.py
-from backend.app.graphs.state import MyState
+from backend.app.graphs.utils.state import MyState
 
 def generate_response(state: MyState):
 
