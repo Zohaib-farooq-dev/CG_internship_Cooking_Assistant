@@ -1,3 +1,7 @@
+"""
+Graph node implementing a cooking research agent that combines
+LLM reasoning with optional Tavily search for real-time information.
+"""
 import json, re
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import AIMessage, FunctionMessage
@@ -32,8 +36,12 @@ react_agent = create_react_agent(
     prompt=(recipe_prompt)
 )
 
-
 def cooking_research_agent(state: MyState) -> MyState:
+    """
+    Executes the LangGraph ReAct agent to answer cooking-related queries 
+    using a LLM model with an optional real time searcing (Tavily search tool) to
+    generate responses. And stores the parsed result in the state's 'content' field.
+    """
     print("Invoking cooking research agent")
     query = state["query"].strip()
     print("DEBUG query:", repr(query))

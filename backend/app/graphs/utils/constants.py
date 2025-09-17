@@ -1,3 +1,11 @@
+"""
+Centralized configuration constants for the LangGraph cooking agent.
+
+Includes:
+    - Model name
+    - API keys loaded from the .env file
+    - File path for graph visualization
+"""
 import os
 from dotenv import load_dotenv
 

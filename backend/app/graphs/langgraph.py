@@ -1,3 +1,13 @@
+"""
+Defines the LangGraph workflow for cooking queries.
+
+This graph connects the individual nodes (classifier, recipe generator,
+evaluator, and alternative_recipe) and sets the conditional transitions between them to
+create a complete cooking-query pipeline.
+
+The graph is compiled as `app_graph` and automatically saves a PNG
+visualization of the flow to `image_path`.
+"""
 from langgraph.graph import StateGraph, START, END
 from backend.app.graphs.nodes.classify import classify_agent
 from backend.app.graphs.nodes.recipe_generate import cooking_research_agent
