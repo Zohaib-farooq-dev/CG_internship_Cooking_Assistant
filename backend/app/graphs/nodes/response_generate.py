@@ -1,16 +1,18 @@
-# backend/app/graphs/response_generate.py
+"""
+Graph node for creating the final output message
+for irrelevant queries.
+"""
 from backend.app.graphs.utils.state import MyState
 
-def generate_response(state: MyState):
-
+def generate_response(state: MyState)->MyState:
+    """
+    Replace the state's content with a predefined message for irrelevant quries.
+    """
     # Predefined irrelevant message
     irrelevant_msg = (
         """This content is irrelevant to the Agent context. 
          This agent is only for cooking or recipe-related queries."""
     )
-
-    # Check if the classifier marked it as irrelevant
-    if state.get("classifier") == "irrelevant":
-        state["content"] = {"content": irrelevant_msg}
-        return state
+    state["content"] = {"content": irrelevant_msg}
+    return state
 

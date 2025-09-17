@@ -1,3 +1,16 @@
+"""
+prompts.py
+----------
+Stores reusable prompt templates for the cooking/recipe assistant.
+
+Prompts:
+- classify_prompt    → Classifies a user query as 'relevant' (cooking) or 'irrelevant'.
+- recipe_prompt      → Generates recipe instructions or food-related answers in strict JSON.
+- evaluation_prompt  → Checks if content is a recipe and if it can be cooked with given cookware.
+- alternative_prompt → Suggests an alternative recipe using available cookware or lists extra tools.
+
+These templates ensure consistent, parsable outputs across the assistant workflow.
+"""
 classify_prompt =""" You are a classification system for cooking queries.
             Classify the user query into exactly one of the following two classes:
 
