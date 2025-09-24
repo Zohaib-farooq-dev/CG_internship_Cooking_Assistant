@@ -15,7 +15,7 @@ from backend.app.graphs.nodes.evaluation import evaluation_agent
 from backend.app.graphs.nodes.alternative_recipe import alternative_recipe_agent
 from backend.app.graphs.nodes.response_generate import generate_response
 from backend.app.graphs.utils.state import MyState
-from backend.app.graphs.utils.constants import image_path
+from backend.app.graphs.utils.constants import IMAGE_PATH
 
 graph = StateGraph(MyState)
 
@@ -64,7 +64,7 @@ try:
     png_image_bytes = app_graph.get_graph().draw_mermaid_png()
 
     # Save the bytes to a file
-    with open(image_path, "wb") as f:
+    with open(IMAGE_PATH, "wb") as f:
         f.write(png_image_bytes)
 except Exception as e:
     print(f"Error generating graph: {e}")
