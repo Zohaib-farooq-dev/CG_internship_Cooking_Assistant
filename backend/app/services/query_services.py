@@ -1,16 +1,16 @@
-"""
-Service layer for running the LangGraph pipeline on user queries.
-"""
 from backend.app.graphs.langgraph import app_graph, START
 from backend.app.models.query import QueryRequest
 
 async def process_query(request: QueryRequest)->dict:
     """
-    Executes the LangGraph pipeline for a user query.
+    Run the LangGraph pipeline on the provided user query.
 
-    Takes the input query, builds the initial state, runs the
-    LangGraph starting from the START node, and returns the
-    final processed content as a JSON-compatible dict.
+    Args:
+        request (QueryRequest): The validated request body containing the user query.
+
+    Returns:
+        dict: A JSON-compatible dictionary containing the final processed content
+              under the key `"result"`.
     """
     # Prepare initial state for the graph
     state = {
